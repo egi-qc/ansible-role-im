@@ -33,6 +33,11 @@
     include: devel.yml
     when: im_version == "devel"
 
+  # Install IM using distribution
+  - name: Install IM distribution
+    package: python-im
+    when: im_version == "distribution"
+
   - name: Disable IM REST API
     ini_file: dest=/etc/im/im.cfg section=im option=ACTIVATE_REST value=False
 
