@@ -35,7 +35,9 @@
 
   # Install IM using distribution
   - name: Install IM distribution
-    package: python-im
+    package:
+      name: "python-im"
+      state: latest
     when: im_version == "distribution"
 
   - name: Disable IM REST API
