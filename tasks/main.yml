@@ -18,6 +18,13 @@
   - name: Install backports.ssl_match_hostname
     pip: name=backports.ssl_match_hostname state=latest executable=pip
 
+  # Install IM using distribution
+  - name: Install IM distribution
+    package:
+      name: "python-im"
+      state: latest
+    when: im_version == "distribution"
+
   # Install IM using pip
   - name: Pip install IM
     pip: name=IM executable=pip
@@ -32,13 +39,6 @@
   - name: Install IM devel Version
     include: devel.yml
     when: im_version == "devel"
-
-  # Install IM using distribution
-  - name: Install IM distribution
-    package:
-      name: "python-im"
-      state: latest
-    when: im_version == "distribution"
 
   - name: Disable IM REST API
     ini_file: dest=/etc/im/im.cfg section=im option=ACTIVATE_REST value=False
