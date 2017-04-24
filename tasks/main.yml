@@ -33,7 +33,7 @@
   # Install IM using pip but specific version
   - name: Pip install IM
     pip: name=IM version={{ im_version }} executable=pip
-    when: im_version != "latest" and im_version != "devel"
+    when: im_version != "distribution" and im_version != "latest" and im_version != "devel"
 
   # Install IM getting devel branch from git
   - name: Install IM devel Version
