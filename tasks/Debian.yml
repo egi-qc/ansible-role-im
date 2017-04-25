@@ -1,2 +1,7 @@
+- name: Set distribution package name
+  set_fact:
+    distro_pkgname: "python-im"
+  when: im_version == "distribution"
+
 - name: Install IM dependencies for Debian
   apt: name=gcc,python-soappy,python-dev,libffi-dev,libssl-dev,python-pip,libsqlite3-dev update_cache=yes cache_valid_time=3600

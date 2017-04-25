@@ -1,3 +1,8 @@
+- name: Set distribution package name
+  set_fact:
+    distro_pkgname: "IM"
+  when: im_version == "distribution"
+
 - name: Install IM dependencies for CentOS
   yum: name=epel-release
 

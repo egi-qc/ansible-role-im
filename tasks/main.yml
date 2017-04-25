@@ -21,7 +21,7 @@
   # Install IM using distribution
   - name: Install IM distribution
     package:
-      name: "python-im"
+      name: "{{distro_pkgname}"
       state: latest
     when: im_version == "distribution"
 
